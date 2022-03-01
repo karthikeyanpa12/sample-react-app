@@ -1,20 +1,19 @@
-import React, { useState } from "react";
-import Sample from "./SampleClass";
+import React from "react";
 import SampleFunctional from "./SampleFunctional";
+import Details from "./Details";
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  const [title, setTitle] = useState("");
-
-  const onChange = (event) => {
-    setTitle(event.target.value);
-  };
-  
   return (
     <div className="App">
-      {/* <Sample /> */}
-      <input type="text" value={title} onChange={onChange} />
-      <SampleFunctional title={title} />
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<SampleFunctional />} />
+          <Route path="/details" element={<Details />} />
+          <Route path="/details/:id" element={<Details />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
