@@ -5,6 +5,9 @@ import List from "./List";
 import FilterList from "./FilterList";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./Login";
+import LoginRef from "./LoginRef";
+import Parent from "./InverseFlow";
 
 function App() {
   return (
@@ -15,7 +18,10 @@ function App() {
           <Route path="/details" element={<Details />} />
           <Route path="/list" element={<List />} />
           <Route path="/filterList" element={<FilterList />} />
-        </Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/loginRef" element={<LoginRef />} />
+          <Route path="/parent" element={<Parent />} />
+         </Routes>
       </Router>
     </div>
   );
