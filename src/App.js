@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import LoginRef from "./LoginRef";
 import Parent from "./InverseFlow";
+import SampleStyle from "./SampleStyle";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/loginRef" element={<LoginRef />} />
           <Route path="/parent" element={<Parent />} />
+          <Route path="/sampleStyle" element={<SampleStyle />} />
          </Routes>
       </Router>
     </div>

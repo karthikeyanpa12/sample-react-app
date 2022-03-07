@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import SampleRender from "./SampleRender";
 
 const Login = () => {
   const [username, setUserName] = useState();
@@ -18,6 +19,7 @@ const Login = () => {
     <div className="login-wrapper">
       <h1>Please Log In</h1>
       <form onSubmit={handleSubmit}>
+        <SampleRender />
         <label>
           <p>Username</p>
           <input type="text" onChange={(e) => setUserName(e.target.value)} />

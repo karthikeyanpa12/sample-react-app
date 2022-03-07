@@ -1,9 +1,14 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function Details() {
   let params = useParams();
-  return <div>detail {params?.id}</div>;
+  return (
+    <div>
+      <Link to="/">Back</Link>
+      detail {params?.id}
+    </div>
+  );
 }
 
 export default Details;
