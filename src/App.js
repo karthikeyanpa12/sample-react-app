@@ -1,6 +1,5 @@
-import React from "react";
+import React, { Suspense } from "react";
 import SampleFunctional from "./SampleFunctional";
-import Details from "./Details";
 import List from "./List";
 import FilterList from "./FilterList";
 import "./App.css";
@@ -9,21 +8,30 @@ import Login from "./Login";
 import LoginRef from "./LoginRef";
 import Parent from "./InverseFlow";
 import SampleStyle from "./SampleStyle";
+import SampleError from "./SampleError";
+import ErrorBoundary from "./ErrorBoundary";
+const DetailsComponent = React.lazy(() => import("./Details"));
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Routes>
-          <Route exact path="/" element={<SampleFunctional />} />
-          <Route path="/details" element={<Details />} />
-          <Route path="/list" element={<List />} />
-          <Route path="/filterList" element={<FilterList />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/loginRef" element={<LoginRef />} />
-          <Route path="/parent" element={<Parent />} />
-          <Route path="/sampleStyle" element={<SampleStyle />} />
-         </Routes>
+        <ErrorBoundary>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/error" element={<SampleError />} />
+              <Route exact path="/" element={<SampleFunctional />} />
+              <Route path="/details" element={<DetailsComponent />} />
+              <Route path="/details/:id" element={<DetailsComponent />} />
+              <Route path="/list" element={<List />} />
+              <Route path="/filterList" element={<FilterList />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/loginRef" element={<LoginRef />} />
+              <Route path="/parent" element={<Parent />} />
+              <Route path="/sampleStyle" element={<SampleStyle />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
       </Router>
     </div>
   );
