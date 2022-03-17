@@ -10,6 +10,8 @@ import Parent from "./InverseFlow";
 import SampleStyle from "./SampleStyle";
 import SampleError from "./SampleError";
 import ErrorBoundary from "./ErrorBoundary";
+import HOC from "./HigherOrder";
+import SampleRedux from "./SampleRedux";
 const DetailsComponent = React.lazy(() => import("./Details"));
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
               <Route path="/loginRef" element={<LoginRef />} />
               <Route path="/parent" element={<Parent />} />
               <Route path="/sampleStyle" element={<SampleStyle />} />
+              <Route path="/hoc" element={<HOC />} />
+              <Route path="/redux" element={<SampleRedux />} />
             </Routes>
           </Suspense>
         </ErrorBoundary>
